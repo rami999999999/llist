@@ -37,9 +37,12 @@ add(node* list, node* new)
 int
 add_inplace(node* list, node* new, int (*is_place)(void* data))
 {
+
+  enum loop add_node = ongoing;
+
   node* aux;
   aux = list;
-  enum loop add_node = ongoing;
+
   while (aux != NULL && add_node == ongoing) {
     if (is_place(aux->data)) {
       new->next = aux->next;
@@ -55,3 +58,10 @@ add_inplace(node* list, node* new, int (*is_place)(void* data))
     return 1;
   }
 }
+
+/*
+ * TODO
+ */
+int
+node_remove(node* list, int (*is_remove)(void* data))
+{}
