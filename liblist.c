@@ -49,5 +49,9 @@ add_inplace(node* list, node* new, int (*is_place)(void* data))
     aux = aux->next;
   }
 
-  return 0;
+  if (add_node == done) {
+    return 0;
+  } else {
+    return 1;
+  }
 }
