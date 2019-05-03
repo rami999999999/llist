@@ -64,4 +64,19 @@ add_inplace(node* list, node* new, int (*is_place)(void* data))
  */
 int
 node_remove(node* list, int (*is_remove)(void* data))
-{}
+{
+  if (list == NULL) {
+    return 1;
+  }
+  enum loop remove_node;
+  remove_node = ongoing;
+  node* aux = list;
+
+  while (aux != NULL && remove_node == ongoing) {
+    if (is_remove(aux->data)) {
+      // TODO: REMOVE
+    }
+    aux = aux->next;
+  }
+  return 0;
+}
